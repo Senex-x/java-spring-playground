@@ -4,6 +4,7 @@ import com.example.spring_boot.entity.Movie;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Random;
 
@@ -42,5 +43,13 @@ public class MoviesRepository {
 
     public List<Movie> getMovies() {
         return movies;
+    }
+
+    public List<Movie> getBestMoviesFirst() {
+        return movies.stream().sorted(Comparator.comparingInt(Movie::getRating).reversed()).toList();
+    }
+
+    public List<Movie> getOnlyBestMovies() {
+        return movies.stream().filter((movie -> movie.getRating() == 5)).toList();
     }
 }

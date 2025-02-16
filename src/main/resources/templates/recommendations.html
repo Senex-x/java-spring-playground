@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Список фильмов</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      padding: 20px;
+      background-color: #f4f4f4;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 10px;
+      text-align: left;
+    }
+    th {
+      background-color: #28a745;
+      color: white;
+    }
+    button {
+      background-color: #28a745;
+      color: white;
+      font-size: 16px;
+      padding: 10px;
+      margin-top: 15px;
+      cursor: pointer;
+      border: none;
+      border-radius: 4px;
+    }
+    button:hover {
+      background-color: #218838;
+    }
+    .container {
+      margin-top: 20px;
+      max-width: 400px;
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    }
+    button {
+      width: 100%;
+      background-color: #28a745;
+      color: white;
+      font-size: 16px;
+      margin-top: 15px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+<h2>Рекомендации</h2>
+<table>
+  <thead>
+  <tr>
+    <th>Название</th>
+    <th>Рейтинг</th>
+    <th>Комментарий</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:if="${movies.empty}">
+    <td colspan="3">Фильмы не найдены</td>
+  </tr>
+  <tr th:each="movie : ${movies}">
+    <td><span th:text="${movie.name}"></span></td>
+    <td><span th:text="${movie.rating}"></span></td>
+    <td><span th:text="${movie.comment}"></span></td>
+  </tr>
+  </tbody>
+</table>
+
+<div class="container">
+  <button onclick="location.href='/movies'">Перейти к фильмам</button>
+  <button onclick="location.href='/recommendations'">Перейти к рекомендациям</button>
+  <button onclick="location.href='/recommendations/best'">Перейти к лучшим фильмам</button>
+</div>
+</body>
+</html>
