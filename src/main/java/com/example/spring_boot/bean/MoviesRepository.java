@@ -24,6 +24,22 @@ public class MoviesRepository {
         movies.add(new Movie(idCounter++, name, rating, comment));
     }
 
+    public void updateRating(long movieId, int rating) {
+        for (Movie movie : movies) {
+            if (movie.getId() == movieId) {
+                movie.setRating(rating);
+            }
+        }
+    }
+
+    public void updateComment(long movieId, String comment) {
+        for (Movie movie : movies) {
+            if (movie.getId() == movieId) {
+                movie.setComment(comment);
+            }
+        }
+    }
+
     public List<Movie> getMovies() {
         return movies;
     }
