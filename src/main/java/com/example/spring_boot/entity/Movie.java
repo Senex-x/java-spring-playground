@@ -9,7 +9,7 @@ public class Movie {
         this.comment = comment;
     }
 
-    private long id;
+    private Long id;
 
     private String name;
 
@@ -17,7 +17,7 @@ public class Movie {
 
     private String comment;
 
-    public Long getId() {
+    public long getId() {
         return id;
     }
 

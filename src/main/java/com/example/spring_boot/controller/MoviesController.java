@@ -21,15 +21,16 @@ public class MoviesController {
 
     @GetMapping("/movies")
     public String getMovies(Model model) {
+        model.addAttribute("movie", new Movie(-1L, null, 1, null));
         model.addAttribute("movies", moviesRepository.getMovies());
         return "movies";
     }
 
-    @PostMapping("/movie/add")
+    @PostMapping("/movies/add")
     public String addMovie(@ModelAttribute Movie movie, Model model) {
-        moviesRepository.addMovie(movie);
+        moviesRepository.addMovie(movie.getName(), movie.getRating(), movie.getComment());
+        model.addAttribute("movie", movie);
         model.addAttribute("movies", moviesRepository.getMovies());
         return "movies";
     }
-
 }
