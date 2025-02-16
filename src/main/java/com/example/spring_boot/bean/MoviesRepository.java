@@ -17,6 +17,10 @@ public class MoviesRepository {
             new Movie(idCounter++, "Some name 3", new Random().nextInt(1, 6), null)
     );
 
+    public void addMovie(Movie movie) {
+        movies.add(movie);
+    }
+
     public List<Movie> getMovies() {
         return movies;
     }

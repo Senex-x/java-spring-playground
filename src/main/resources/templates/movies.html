@@ -1,3 +1,36 @@
+<!DOCTYPE HTML>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            font-family: Arial, sans-serif;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f4f4f4;
+            font-weight: bold;
+        }
+
+        tbody tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        tbody tr:hover {
+            background-color: #f1f1f1;
+        }
+    </style>
+</head>
+<body>
 <table>
     <thead>
     <tr>
@@ -10,8 +43,9 @@
         <td colspan="2"> Фильмы не найдены</td>
     </tr>
     <tr th:each="movie : ${movies}">
-        <td><span th:text="${movie.name}"> Имя </span></td>
-        <td><span th:text="${movie.rating}"> Рейтинг </span></td>
+        <td><span th:text="${movie.name}"> </span></td>
+        <td><span th:text="${movie.rating}"> </span></td>
     </tr>
     </tbody>
 </table>
+</body>
