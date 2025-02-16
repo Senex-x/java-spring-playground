@@ -1,5 +1,6 @@
 package com.example.spring_boot;
 
+import com.example.spring_boot.bean.TruthProvider;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;

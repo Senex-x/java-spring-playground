@@ -1,0 +1,17 @@
+<table>
+    <thead>
+    <tr>
+        <th> Название</th>
+        <th> Рейтинг</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:if="${movies.empty}">
+        <td colspan="2"> Фильмы не найдены</td>
+    </tr>
+    <tr th:each="movie : ${movies}">
+        <td><span th:text="${movie.name}"> Имя </span></td>
+        <td><span th:text="${movie.rating}"> Рейтинг </span></td>
+    </tr>
+    </tbody>
+</table>
