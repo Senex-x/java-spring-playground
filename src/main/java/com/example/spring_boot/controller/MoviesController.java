@@ -20,7 +20,7 @@ public class MoviesController {
 
     @GetMapping
     public String getMovies(Model model) {
-        model.addAttribute("new_movie", new Movie(-1L, null, 1, null));
+        model.addAttribute("movie", new Movie(-1L, null, 1, null));
         model.addAttribute("movies", moviesRepository.getMovies());
         return "movies";
     }
@@ -28,7 +28,7 @@ public class MoviesController {
     @PostMapping("/add")
     public String addMovie(@ModelAttribute Movie movie, Model model) {
         moviesRepository.addMovie(movie.getName(), movie.getRating(), movie.getComment());
-        model.addAttribute("new_movie", movie);
+        model.addAttribute("movie", movie);
         model.addAttribute("movies", moviesRepository.getMovies());
         return "movies";
     }

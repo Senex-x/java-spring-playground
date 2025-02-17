@@ -3,6 +3,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <link href="../static/style.css" rel="stylesheet"/>
+    <link th:href="@{style.css}" rel="stylesheet" />
 </head>
 <body>
 <table>
@@ -41,7 +42,7 @@
 
 <div class="container">
     <h3>Добавить фильм</h3>
-    <form th:action="@{/movies/add}" th:object="${new_movie}" method="post">
+    <form th:action="@{/movies/add}" th:object="${movie}" method="post">
         <label for="name">Название</label>
         <input type="text" id="name" th:field="*{name}" required>
 
